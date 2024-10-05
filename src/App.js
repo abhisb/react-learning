@@ -22,7 +22,7 @@ function App() {
         >
           Learn React
         </a>
-        <Profile {...userDetails} />
+        <Profile title={userDetails.title} id={userDetails.id} />
         <Profile {...userDetails} />
       </header>
     </div>

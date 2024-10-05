@@ -7,7 +7,7 @@ const products = [
 function ProductComponent({ name, content, title }) {
   const listItems = products.map((product) => (
     <li key={product.id}>
-      {product.title} - {name} - {content}
+      {product.title} - {product.id}
     </li>
   ));
 
