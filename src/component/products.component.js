@@ -2,6 +2,7 @@ const products = [
   { title: "Cabbage", id: 1 },
   { title: "Garlic", id: 2 },
   { title: "Apple", id: 3 },
+  { title: "Mango", id: 4 },
 ];
 
 function ProductComponent({ name, content, title }) {
