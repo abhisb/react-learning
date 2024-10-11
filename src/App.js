@@ -3,6 +3,11 @@ import "./App.css";
 import HeaderComponent from "./component/header.component";
 import Profile from "./component/profile.component";
 // import { Header } from "./components/header.component";
+import MyApp from "./component/Appname.component";
+import AddToDO from "./component/addtodo.component";
+import "bootstrap/dist/css/bootstrap.min.css"; 
+import TodoItem from "./component/todoitem.component";
+import TodoItem2 from "./component/todoitem2.component";
 
 function App() {
   const pageTitle = "Learning React App";
@@ -23,7 +28,13 @@ function App() {
           Learn React
         </a>
         <Profile title={userDetails.title} id={userDetails.id} />
-        <Profile {...userDetails} />
+
+        <center className="todo-container">
+          <MyApp />
+          <AddToDO/>
+          <TodoItem/>
+          <TodoItem2/>
+        </center> 
       </header>
     </div>
   );
