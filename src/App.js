@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import HeaderComponent from "./component/header.component";
 import Profile from "./component/profile.component";
+import PageComponent from "./pages/pages.component";
 // import { Header } from "./components/header.component";
 import Newbutton from "./component/new.component";
 
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div className='App'>
-      <HeaderComponent title={pageTitle}></HeaderComponent>
+      {/* <HeaderComponent title={pageTitle}></HeaderComponent>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>Sample application</p>
@@ -26,7 +27,8 @@ function App() {
         <Profile title={userDetails.title} id={userDetails.id} />
         <Profile {...userDetails} />
         <Newbutton />
-      </header>
+      </header>*/}
+      <PageComponent />
     </div>
   );
 }
