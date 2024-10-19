@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
-import UserDetailsContext from "../provider/user-details.provider";
+import UserDetailsContext from "../../provider/user-details.provider";
+import { useNavigate } from "react-router-dom"; // useNavigate in React Router v6
+import "./left-panel.component.css";
 
 export default function LeftPanel() {
   const { userDetails, setUserDetails } = useContext(UserDetailsContext);
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   const updateUserDetails = () => {
     setUserDetails({
@@ -11,6 +14,11 @@ export default function LeftPanel() {
       name: userName,
     });
   };
+
+  const loadLoginPage = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <div>This is left Panel</div>
@@ -20,6 +28,10 @@ export default function LeftPanel() {
         placeholder='Provider User Name'
       />
       <button onClick={() => updateUserDetails()}>Change User Name</button>
+
+      <button className='login-button' onClick={loadLoginPage}>
+        Redirect to Login
+      </button>
     </>
   );
 }

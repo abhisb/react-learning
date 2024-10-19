@@ -2,14 +2,22 @@ import { useState } from "react";
 import UserDetailsContext from "../provider/user-details.provider";
 import DashboardPageComponent from "./dashboard.component";
 import LoginPageComponent from "./login.component";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useSearchParams } from "react-router-dom";
 
 export default function PageComponent() {
-  const params = new URLSearchParams(window.location.search);
-  const paramsObj = Object.fromEntries(params.entries());
-  const [userDetails, setUserDetails] = useState({ name: "Alex", age: 30 });
-
-  console.log(paramsObj);
+  // const params = new URLSearchParams(window.location.search);
+  // const paramsObj = Object.fromEntries(params.entries());
+  const [searchParams] = useSearchParams();
+  const [userDetails, setUserDetails] = useState([
+    {
+      email: "alexdoe@test.com",
+      first_name: "Alex",
+      last_name: "Doe",
+    },
+  ]);
+  const [employeeAllocation, setEmployeeAllocation] = useState();
+  const name = searchParams.get("name");
+  console.log("Query params name::: ", name);
 
   return (
     <>
@@ -18,6 +26,8 @@ export default function PageComponent() {
           userDetails,
           title: "Context Provider testing data ^^^^^",
           setUserDetails,
+          employeeAllocation,
+          setEmployeeAllocation,
         }}
       >
         {/* {paramsObj?.name === "dashboard" ? <DashboardPageComponent /> : ""}

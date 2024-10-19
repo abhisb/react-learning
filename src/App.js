@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import HeaderComponent from "./component/header.component";
+import HeaderComponent from "./component/header/header.component";
 import Profile from "./component/profile.component";
 import PageComponent from "./pages/pages.component";
 // import { Header } from "./components/header.component";

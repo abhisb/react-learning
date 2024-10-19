@@ -6,8 +6,18 @@ export default function Overview() {
   return (
     <>
       <div>
-        This is Overview component::: {userDetails.name}, {userDetails.age},{" "}
+        This is Overview component:::
         {title}
+      </div>
+
+      <div>
+        <ul>
+          {userDetails?.map((item) => (
+            <li>
+              {item.first_name} {item.last_name} - {item.email}
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
