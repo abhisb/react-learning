@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function Overview() {
   const { userDetails, title } = useContext(UserDetailsContext);
-  const count = useSelector((state) => state.count);
+  const count = useSelector((st) => st.count);
   const userName = useSelector((state) => state.userDetails);
   return (
     <>
@@ -25,10 +25,14 @@ export default function Overview() {
 
       <div>
         <h1>Count Value: {count}</h1>
-        User name from Store:{" "}
-        <b>
-          {userName.firstName} {userName.lastName}
-        </b>
+        {(userName.firstName || userName.lastName) && (
+          <div>
+            User name from Store:{" "}
+            <b>
+              {userName.firstName} {userName.lastName}
+            </b>
+          </div>
+        )}
       </div>
     </>
   );

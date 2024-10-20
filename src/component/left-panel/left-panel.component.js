@@ -3,12 +3,18 @@ import UserDetailsContext from "../../provider/user-details.provider";
 import { useNavigate } from "react-router-dom"; // useNavigate in React Router v6
 import "./left-panel.component.css";
 import { useDispatch } from "react-redux";
-import { decrement, increment } from "../../store/actions/counter-actions";
+import {
+  decrement,
+  increment,
+  updateUserNameAction,
+} from "../../store/actions/counter-actions";
 
 export default function LeftPanel() {
   const { userDetails, setUserDetails } = useContext(UserDetailsContext);
   const [userName, setUserName] = useState("");
   const [counter, setCounter] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -25,6 +31,20 @@ export default function LeftPanel() {
 
   const incrementCounter = () => {
     dispatch(increment(counter));
+    // The above statement is same as the below statement
+    // dispatch({
+    //   type: 'INCREMENT',
+    //   payload: counter,
+    // });
+  };
+
+  const updateUserName = () => {
+    dispatch(
+      updateUserNameAction({
+        firstName,
+        lastName,
+      })
+    );
   };
 
   return (
@@ -40,6 +60,26 @@ export default function LeftPanel() {
       <button className='login-button' onClick={loadLoginPage}>
         Redirect to Login
       </button>
+
+      <div className='user-name-container'>
+        <div>
+          <label for='firstName'>First Name</label>
+          <input
+            id='firstName'
+            name='firstName'
+            onChange={(evt) => setFirstName(evt.target.value)}
+          />
+        </div>
+        <div>
+          <label for='lastName'>First Name</label>
+          <input
+            id='lastName'
+            name='lastName'
+            onChange={(evt) => setLastName(evt.target.value)}
+          />
+        </div>
+        <button onClick={updateUserName}>Update User Name - Store</button>
+      </div>
 
       <div>
         <input
