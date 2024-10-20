@@ -2,7 +2,7 @@ import { useState } from "react";
 import UserDetailsContext from "../provider/user-details.provider";
 import DashboardPageComponent from "./dashboard.component";
 import LoginPageComponent from "./login.component";
-import { Route, Routes, useSearchParams } from "react-router-dom";
+import { Navigate, Route, Routes, useSearchParams } from "react-router-dom";
 
 export default function PageComponent() {
   // const params = new URLSearchParams(window.location.search);
@@ -36,6 +36,7 @@ export default function PageComponent() {
         <Routes>
           <Route path='/dashboard' element={<DashboardPageComponent />} />
           <Route path='/login' element={<LoginPageComponent />} />
+          <Route path='*' element={<Navigate to='/dashboard' />} />
         </Routes>
       </UserDetailsContext.Provider>
     </>
