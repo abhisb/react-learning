@@ -1,17 +1,20 @@
 import logo from "./logo.svg";
 import "./App.css";
-import HeaderComponent from "./component/header.component";
+import HeaderComponent from "./component/header/header.component";
 import Profile from "./component/profile.component";
+import PageComponent from "./pages/pages.component";
 // import { Header } from "./components/header.component";
 import Newbutton from "./component/new.component";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const pageTitle = "Learning React App";
   const userDetails = { title: "A", id: 1 };
 
   return (
-    <div className='App'>
-      <HeaderComponent title={pageTitle}></HeaderComponent>
+    <BrowserRouter>
+      <div className='App'>
+        {/* <HeaderComponent title={pageTitle}></HeaderComponent>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>Sample application</p>
@@ -26,8 +29,10 @@ function App() {
         <Profile title={userDetails.title} id={userDetails.id} />
         <Profile {...userDetails} />
         <Newbutton />
-      </header>
-    </div>
+      </header>*/}
+        <PageComponent />
+      </div>
+    </BrowserRouter>
   );
 }
 

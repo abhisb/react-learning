@@ -1,5 +1,5 @@
 import ProductComponent from "./products.component";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const user = {
   name: "Hedy Lamarr",
@@ -8,11 +8,15 @@ const user = {
 };
 
 export default function Profile({ title, id }) {
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(0);
 
   const incrementCounter = () => {
     setCount(count + 1);
   };
+
+  useEffect(() => {
+    // console.log("Effect ran because count changed", count);
+  }, [count]); // Only re-run the effect when `count` changes
 
   return (
     <>
@@ -26,16 +30,17 @@ export default function Profile({ title, id }) {
           height: user.imageSize,
         }}
       />
-
-      <ProductComponent
-        name={user.name}
-        content={"Artist"}
-        title={title}
-        id={id}
-      />
+      {count === 3 && (
+        <ProductComponent
+          name={user.name}
+          content={"Artist"}
+          title={title}
+          id={id}
+        />
+      )}
 
       <p>Count: {count}</p>
-      <button onClick={incrementCounter}>Increment</button>
+      <button onClick={() => incrementCounter()}>Increment</button>
     </>
   );
 }
