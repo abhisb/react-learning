@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import UserDetailsContext from "../provider/user-details.provider";
 
+
 export default function DashboardPageComponent() {
   // The API endpoint URL
   const apiUrl =
@@ -36,6 +37,8 @@ export default function DashboardPageComponent() {
       <LeftPanel />
       <Overview />
       <Footer />
+      
+    
     </>
   );
 }
